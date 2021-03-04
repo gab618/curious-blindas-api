@@ -1,10 +1,5 @@
-import express from "express";
+import app from "./app";
 
-const app = express();
-app.use(express.json());
-
-app.get("/", (req, res) => {
-  return res.json({ ok: "?XD" });
-});
-
-app.listen(1337);
+app.listen(1337, () =>
+  console.log("Barão mágico para Balão vermelho responda!")
+);

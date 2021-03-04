@@ -1,0 +1,16 @@
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "username": "postgres",
+  "password": "docker123",
+  "database": "curiousblindas",
+  "synchronize": true,
+  "logging": false,
+  "migrations": ["src/database/migrations/*.ts"],
+  "cli": {
+    "entitiesDir": "src/entity",
+    "migrationsDir": "src/database/migrations",
+    "subscribersDir": "src/subscriber"
+  }
+}
