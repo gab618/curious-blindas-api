@@ -1,0 +1,19 @@
+{
+  "name": "curious-blindas-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/gab618/curious-blindas-api.git",
+  "author": "Gabriel <knuckles4x@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "tsnd --transpile-only --ignore-watch node_modules --respawn src/server.ts"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.11",
+    "ts-node-dev": "^1.1.6",
+    "typescript": "^4.2.2"
+  }
+}
