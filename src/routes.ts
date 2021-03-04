@@ -8,5 +8,7 @@ routes.get("/", (req: Request, res: Response) => {
 });
 
 routes.post("/users", UsersController.create);
+routes.get("/users", UsersController.index);
+routes.get("/users/:username", UsersController.show);
 
 export default routes;
