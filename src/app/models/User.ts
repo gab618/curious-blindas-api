@@ -1,5 +1,12 @@
-import { Entity, Column, PrimaryGeneratedColumn, Unique } from "typeorm";
-
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  Unique,
+  OneToMany,
+  JoinColumn,
+} from "typeorm";
+import Image from "./Image";
 @Entity("users")
 @Unique(["username"])
 @Unique(["email"])
@@ -21,4 +28,10 @@ export default class User {
 
   @Column()
   bio: string;
+
+  @OneToMany(() => Image, (image) => image.user, {
+    cascade: ["insert", "update"],
+  })
+  @JoinColumn({ name: "user_id" })
+  images: Image[];
 }
