@@ -20,7 +20,9 @@ routes.get("/users/:username", UsersController.show);
 routes.post("/users", upload.array("images"), UsersController.create);
 routes.post("/sessions", SessionController.create);
 
-routes.use(authMiddleware);
+routes.get("/questions/:id", QuestionsController.show);
 routes.post("/questions", QuestionsController.create);
+
+// routes.use(authMiddleware);
 
 export default routes;

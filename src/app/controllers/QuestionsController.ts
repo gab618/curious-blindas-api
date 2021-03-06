@@ -4,12 +4,16 @@ import Question from "../models/Question";
 import User from "../models/User";
 
 export default {
-  async index(req: Request, res: Response) {
+  async show(req: Request, res: Response) {
+    const { id } = req.params;
     const questionsRepository = getRepository(Question);
 
-    const questions = await questionsRepository.find();
+    const question = await questionsRepository.findOne({
+      where: { id },
+      relations: ["user"],
+    });
 
-    return res.json(questions);
+    return res.json(question);
   },
 
   async create(req: Request, res: Response) {
