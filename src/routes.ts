@@ -7,6 +7,7 @@ import SessionController from "./app/controllers/SessionController";
 
 import authMiddleware from "./app/middlewares/auth";
 import QuestionsController from "./app/controllers/QuestionsController";
+import AnswersController from "./app/controllers/AnswersController";
 
 const routes = Router();
 const upload = multer(uploadConfig);
@@ -23,6 +24,8 @@ routes.post("/sessions", SessionController.create);
 routes.get("/questions/:id", QuestionsController.show);
 routes.post("/questions", QuestionsController.create);
 
-// routes.use(authMiddleware);
+routes.use(authMiddleware);
+
+routes.post("/answer/:question_id", AnswersController.create);
 
 export default routes;

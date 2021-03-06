@@ -10,7 +10,7 @@ export default {
 
     const question = await questionsRepository.findOne({
       where: { id },
-      relations: ["user"],
+      relations: ["user", "answers"],
     });
 
     return res.json(question);
