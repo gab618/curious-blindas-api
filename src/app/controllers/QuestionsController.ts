@@ -27,11 +27,11 @@ export default {
     if (!receiver) {
       return res.status(403).json({ error: "User not found" });
     }
+    console.log(receiver.id);
 
-    const newQuestion = questionsRepository.create({
-      text,
-      user_id: receiver.id,
-    });
+    const newQuestion = new Question();
+    newQuestion.text = text;
+    newQuestion.user = receiver;
 
     await questionsRepository.save(newQuestion);
 

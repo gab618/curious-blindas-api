@@ -16,7 +16,10 @@ export default {
 
     const usersRepository = getRepository(User);
 
-    const users = await usersRepository.findOne({ where: { username } });
+    const users = await usersRepository.findOne({
+      where: { username },
+      relations: ["questions"],
+    });
 
     return res.json(users);
   },
