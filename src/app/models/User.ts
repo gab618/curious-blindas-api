@@ -9,6 +9,7 @@ import {
 } from "typeorm";
 import Image from "./Image";
 import bcrypt from "bcryptjs";
+import Question from "./Question";
 @Entity("users")
 @Unique(["username"])
 @Unique(["email"])
@@ -36,6 +37,9 @@ export default class User {
   })
   @JoinColumn({ name: "user_id" })
   images: Image[];
+
+  @OneToMany((type) => Question, (question) => question.user)
+  questions: Question[];
 
   @BeforeInsert()
   async hashPassword() {
