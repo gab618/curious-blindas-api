@@ -29,7 +29,7 @@ export default class User {
   @Column()
   password: string;
 
-  @Column()
+  @Column({ default: "Pergunte-me qualquer coisa" })
   bio: string;
 
   @OneToMany(() => Image, (image) => image.user, {
