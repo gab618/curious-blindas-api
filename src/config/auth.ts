@@ -1,4 +1,6 @@
+require("dotenv").config();
+
 export default {
-  secret: "passphrase",
+  secret: process.env.PASSPHRASE,
   expiresIn: "7d",
 };
