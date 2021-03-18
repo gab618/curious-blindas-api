@@ -29,10 +29,10 @@ export default {
 
     const usersRepository = getRepository(User);
 
-    const requestImages = req.files as Express.Multer.File[];
-    const images = requestImages.map((image) => {
-      return { path: image.filename };
-    });
+    // const requestImages = req.files as Express.Multer.File[];
+    // const images = requestImages.map((image) => {
+    //   return { path: image.filename };
+    // });
 
     const newUser = usersRepository.create({
       name,
@@ -40,7 +40,7 @@ export default {
       email,
       password,
       bio,
-      images,
+      // images,
     });
 
     await usersRepository.save(newUser);
