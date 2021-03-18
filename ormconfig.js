@@ -6,6 +6,12 @@ module.exports = {
   logging: false,
   migrations: ["dist/database/migrations/*.js"],
   entities: ["dist/app/models/*.js"],
+  ssl: true,
+  extra: {
+    ssl: {
+      rejectUnauthorized: false,
+    },
+  },
   cli: {
     entitiesDir: "src/entity",
     migrationsDir: "src/database/migrations",
